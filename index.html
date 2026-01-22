@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul-Aligned Business Roadmap Quiz | Prosperity Pact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .brand-font { font-family: 'Berkshire Swash', cursive; }
+    </style>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+
+        const SoulClientQuiz = () => {
+            const [currentQuestion, setCurrentQuestion] = useState(0);
+            const [answers, setAnswers] = useState({});
+            const [showResult, setShowResult] = useState(false);
+            const [selectedOption, setSelectedOption] = useState(null);
+
+            const questions = [
+                {
+                    id: 1,
+                    question: "What's Your Relationship with Money Right Now?",
+                    options: [
+                        { id: 'A', text: "I feel guilty every time I charge. It feels like I'm betraying something sacred.", archetypes: ['burnout', 'intuitive'] },
+                        { id: 'B', text: "I want abundance but I can't stomach traditional business tactics. They feel gross.", archetypes: ['rebel', 'anticapitalist'] },
+                        { id: 'C', text: "I'm exhausted from giving so much. I know I need boundaries but I don't know how to set them without feeling selfish.", archetypes: ['burnout', 'parent'] },
+                        { id: 'D', text: "I've tried everything the 'experts' say and none of it works for me. I'm starting to wonder if I'm the problem.", archetypes: ['triedeverything', 'neurodivergent'] }
+                    ]
+                },
+                {
+                    id: 2,
+                    question: "How Do You Want to Spend Your Time?",
+                    options: [
+                        { id: 'A', text: "I need space to rest deeply. My rhythm is cyclical, not linear, and I refuse to force consistency.", archetypes: ['cyclical', 'neurodivergent'] },
+                        { id: 'B', text: "I want time for activism, causes I care about, and making real change in the world.", archetypes: ['activist', 'anticapitalist'] },
+                        { id: 'C', text: "I need freedom to disappear sometimes—to travel, write, breathe, and just exist without producing.", archetypes: ['sabbatical', 'countryside'] },
+                        { id: 'D', text: "I want to be present with my family/loved ones without guilt about 'not working enough.'", archetypes: ['parent', 'burnout'] }
+                    ]
+                },
+                {
+                    id: 3,
+                    question: "What Feels Most True About Your Work?",
+                    options: [
+                        { id: 'A', text: "My work is deeply intuitive. I flow with what comes through, and every session is different.", archetypes: ['mystic', 'intuitive'] },
+                        { id: 'B', text: "I do real transformative work, but I can't explain it in a way that makes people understand the value.", archetypes: ['triedeverything', 'intuitive'] },
+                        { id: 'C', text: "My gifts are real, but I'm terrified of claiming them publicly. What will people think?", archetypes: ['intuitive', 'mystic'] },
+                        { id: 'D', text: "I'm spiritual AND sarcastic. I don't fit the 'love and light' mold, and I'm tired of pretending.", archetypes: ['rebel', 'activist'] }
+                    ]
+                },
+                {
+                    id: 4,
+                    question: "What's Your Biggest Struggle Right Now?",
+                    options: [
+                        { id: 'A', text: "I can't figure out how to package what I do. Structure feels like it will kill the magic.", archetypes: ['mystic', 'cyclical'] },
+                        { id: 'B', text: "I'm burning out from saying yes to everyone. I give too much and there's nothing left for me.", archetypes: ['burnout', 'parent'] },
+                        { id: 'C', text: "Every business move feels like selling out. I can't reconcile making money with my values.", archetypes: ['anticapitalist', 'activist'] },
+                        { id: 'D', text: "I've been trying to make this work for so long and nothing sticks. I'm exhausted and losing hope.", archetypes: ['triedeverything', 'sabbatical'] }
+                    ]
+                },
+                {
+                    id: 5,
+                    question: "What Does Your Dream Life Look Like?",
+                    options: [
+                        { id: 'A', text: "Living on land, in nature, with space to breathe and create. Maybe hosting retreats someday.", archetypes: ['countryside', 'cyclical'] },
+                        { id: 'B', text: "Financial freedom to give generously, support causes I believe in, and live without constant worry.", archetypes: ['activist', 'anticapitalist'] },
+                        { id: 'C', text: "A business that honors my natural rhythm—no forced consistency, no guilt for resting.", archetypes: ['cyclical', 'neurodivergent'] },
+                        { id: 'D', text: "Enough income to live comfortably and be present, without working myself into the ground.", archetypes: ['parent', 'sabbatical'] }
+                    ]
+                },
+                {
+                    id: 6,
+                    question: "How Do You Feel About Social Media?",
+                    options: [
+                        { id: 'A', text: "I hate it. It feels performative and draining, but I feel forced to show up there.", archetypes: ['rebel', 'neurodivergent'] },
+                        { id: 'B', text: "I'm okay with it if I can be authentic, but the algorithms and pressure exhaust me.", archetypes: ['triedeverything', 'burnout'] },
+                        { id: 'C', text: "I don't mind it, but I'd rather build community in smaller, more intimate spaces.", archetypes: ['intuitive', 'mystic'] },
+                        { id: 'D', text: "I've tried everything on social media and it just doesn't work for my brain or my energy.", archetypes: ['neurodivergent', 'sabbatical'] }
+                    ]
+                },
+                {
+                    id: 7,
+                    question: "What Kind of Clients Do You Want to Work With?",
+                    options: [
+                        { id: 'A', text: "People who get me immediately. I don't want to convince anyone—I want soul recognition.", archetypes: ['mystic', 'rebel'] },
+                        { id: 'B', text: "Conscious, justice-minded people who care about the world and want to create change.", archetypes: ['activist', 'anticapitalist'] },
+                        { id: 'C', text: "People who value depth, shadow work, and real transformation over quick fixes.", archetypes: ['rebel', 'burnout'] },
+                        { id: 'D', text: "Folks who honor natural rhythms, cycles, and slower, sustainable growth.", archetypes: ['cyclical', 'countryside'] }
+                    ]
+                },
+                {
+                    id: 8,
+                    question: "What's Your Relationship with 'Hustle Culture'?",
+                    options: [
+                        { id: 'A', text: "I reject it completely. Rest is sacred and I refuse to grind myself into the ground.", archetypes: ['cyclical', 'sabbatical'] },
+                        { id: 'B', text: "I've tried it and it broke me. I know there has to be another way.", archetypes: ['burnout', 'triedeverything'] },
+                        { id: 'C', text: "It feels violent to my nervous system. My body says no, but I don't know how to build a business without it.", archetypes: ['neurodivergent', 'intuitive'] },
+                        { id: 'D', text: "I respect people who hustle, but it's not for me. I need slower, more intentional growth.", archetypes: ['countryside', 'parent'] }
+                    ]
+                },
+                {
+                    id: 9,
+                    question: "What Would Make You Feel Most Supported Right Now?",
+                    options: [
+                        { id: 'A', text: "Permission to do things my way, even if it looks different from what everyone else is doing.", archetypes: ['mystic', 'neurodivergent'] },
+                        { id: 'B', text: "Proof that I can build wealth without betraying my values or becoming someone I'm not.", archetypes: ['anticapitalist', 'activist'] },
+                        { id: 'C', text: "Help articulating my work in a way that feels authentic and true, not salesy or manipulative.", archetypes: ['intuitive', 'triedeverything'] },
+                        { id: 'D', text: "A completely different approach that actually fits who I am, not another formula to force myself into.", archetypes: ['triedeverything', 'rebel'] }
+                    ]
+                },
+                {
+                    id: 10,
+                    question: "What Lights You Up Most About Your Work?",
+                    options: [
+                        { id: 'A', text: "The magic—those moments when something inexplicable happens and transformation occurs.", archetypes: ['mystic', 'intuitive'] },
+                        { id: 'B', text: "Knowing that my work creates real, lasting change in people's lives.", archetypes: ['activist', 'burnout'] },
+                        { id: 'C', text: "The depth of connection I create with the people I serve.", archetypes: ['rebel', 'parent'] },
+                        { id: 'D', text: "The freedom to design my life and work in a way that honors who I really am.", archetypes: ['countryside', 'sabbatical'] }
+                    ]
+                },
+                {
+                    id: 11,
+                    question: "If You Could Wave a Magic Wand, What Would Your Business Look Like in 6 Months?",
+                    options: [
+                        { id: 'A', text: "Simple, sustainable, aligned with my energy. Enough clients to live comfortably without overwhelm.", archetypes: ['cyclical', 'mystic'] },
+                        { id: 'B', text: "Generating consistent income that lets me rest, give back, and live without financial stress.", archetypes: ['sabbatical', 'anticapitalist'] },
+                        { id: 'C', text: "Filled with soul clients who see my value and pay me fairly without me having to 'sell' myself.", archetypes: ['intuitive', 'countryside'] },
+                        { id: 'D', text: "Built on my terms, in my rhythm, with my values intact—proof that another way is possible.", archetypes: ['neurodivergent', 'parent'] }
+                    ]
+                }
+            ];
+
+            const archetypes = {
+                cyclical: {
+                    emoji: '🌙',
+                    title: 'The Cycle-Honoring Creative',
+                    subtitle: 'You work with the moon, honor your rhythms, and refuse constant production',
+                    income: '$3,500-$3,800/month',
+                    streams: [
+                        '🌙 Skool Community ($22-$33/month) - 145 members = $3,190/month',
+                        '✨ Seasonal One-Time Offers ($22-$44) - Launch every 2-3 months',
+                        '💰 Affiliate Income ($100-$200/month) - Earn while you rest'
+                    ],
+                    key: 'Batch everything during high-energy phases, rest guilt-free during low-energy. Affiliate income flows even when you\'re resting.',
+                    color: 'from-purple-600 to-indigo-600'
+                },
+                activist: {
+                    emoji: '🔥',
+                    title: 'The Activist Healer',
+                    subtitle: 'Your business IS your activism. You build wealth that creates change',
+                    income: '$4,700-$5,400/month',
+                    streams: [
+                        '⚖️ Sliding Scale Skool ($11-$88/month) - 150 members averaging $28 = $4,200/month',
+                        '✊ Justice-Focused Group Program ($200-$600) - 2 cohorts/year',
+                        '🤝 Values-Aligned Affiliate Income ($200-$400/month)'
+                    ],
+                    key: 'Higher earners subsidize lower earners. Pricing reflects values. You\'re proving ethical wealth exists.',
+                    color: 'from-red-600 to-orange-600'
+                },
+                burnout: {
+                    emoji: '🕊️',
+                    title: 'The Burned-Out Overgiver',
+                    subtitle: 'You need boundaries and income that doesn\'t drain you',
+                    income: '$4,100-$4,300/month',
+                    streams: [
+                        '🛡️ Intimate Skool Community ($33/month) - MAX 100 members = $3,300/month',
+                        '🧘‍♀️ Small Group Coaching ($600) - Only 2 cohorts/year, 6-8 people',
+                        '💸 Affiliate Income ($100-$200/month) - Let others sell for you'
+                    ],
+                    key: 'Serve FEWER people at higher prices. 100 members, not 500. Boundaries built into every offer.',
+                    color: 'from-blue-500 to-cyan-500'
+                },
+                triedeverything: {
+                    emoji: '🌪️',
+                    title: 'The Tried-Everything Healer',
+                    subtitle: 'You need ONE simple path, not 47 strategies',
+                    income: '$3,670-$3,820/month',
+                    streams: [
+                        '🎯 ONE Skool Community ($11/month) - 290 members = $3,190/month',
+                        '📦 3 Simple One-Time Offers ($22-$44) - Rotate quarterly',
+                        '🔗 Strategic Affiliate Income ($150-$300/month) - 40% commissions'
+                    ],
+                    key: 'ONE price. ONE community. ONE path. Your robust affiliate program does the marketing for you.',
+                    color: 'from-gray-700 to-slate-800'
+                },
+                mystic: {
+                    emoji: '🔮',
+                    title: 'The Freestyle Mystic',
+                    subtitle: 'You need flexible structure that holds your intuitive flow',
+                    income: '$3,994-$4,542/month',
+                    streams: [
+                        '✨ Mystical Skool Community ($22/month) - 145 members = $3,190/month',
+                        '🔮 Private Intuitive Sessions ($88-$144) - 8 sessions/month',
+                        '🌟 Affiliate Income ($100-$200/month) - Mystical tools & communities'
+                    ],
+                    key: 'Structure holds your magic, doesn\'t kill it. Sacred numbers in pricing. 1:1 work is your bread and butter.',
+                    color: 'from-purple-600 to-violet-700'
+                },
+                countryside: {
+                    emoji: '🌿',
+                    title: 'The Countryside Dreamer',
+                    subtitle: 'Digital income NOW funds land AND retreat center LATER',
+                    income: '$5,185-$5,385/month',
+                    streams: [
+                        '🏡 "Land Fund" Skool Community ($33/month) - 145 members = $4,785/month',
+                        '🌾 "Future Retreat" Pre-Sales ($600-$1,200) - Sell spots now, deliver later',
+                        '🌱 Affiliate Income ($200-$300/month) - Homesteading tools'
+                    ],
+                    key: '145 members = $57,420/year (your down payment!). Pre-sell retreats to fund the dream.',
+                    color: 'from-green-600 to-emerald-700'
+                },
+                rebel: {
+                    emoji: '⚡',
+                    title: 'The Spiritual Rebel',
+                    subtitle: 'Your realness IS your brand. No toxic positivity allowed',
+                    income: '$3,784-$3,884/month',
+                    streams: [
+                        '🔥 "No-Bullshit" Skool Community ($22/month) - 145 members = $3,190/month',
+                        '🌑 Shadow Work Intensive ($333) - 2 cohorts/year, max 8 people',
+                        '💪 Affiliate Income + Merch ($150-$250/month) - 40% commissions'
+                    ],
+                    key: 'Your community WANTS your sarcasm and depth. Small intensives. High affiliate commissions.',
+                    color: 'from-fuchsia-600 to-pink-600'
+                },
+                intuitive: {
+                    emoji: '💫',
+                    title: 'The Intuitive in Hiding',
+                    subtitle: 'Small, safe spaces to build confidence claiming your gifts',
+                    income: '$4,280-$4,330/month',
+                    streams: [
+                        '🔒 Intimate Skool Community ($33/month) - MAX 100 members = $3,300/month',
+                        '🌙 Private Sessions ($88) - 10 sessions/month = $880',
+                        '🤲 Small Affiliate Income ($100-$150/month) - Trusted communities'
+                    ],
+                    key: 'You don\'t need 500 members—just 100 who believe in you. 1:1s are your foundation.',
+                    color: 'from-violet-600 to-purple-700'
+                },
+                neurodivergent: {
+                    emoji: '🧠',
+                    title: 'The Neurodivergent Mystic',
+                    subtitle: 'Hyperfocus-friendly income without daily consistency',
+                    income: '$3,830-$4,030/month',
+                    streams: [
+                        '🎨 Flexible Skool Community ($22/month) - 145 members = $3,190/month',
+                        '⚡ Hyperfocus-Created Products ($33-$88) - Create once, sell forever',
+                        '🔄 Affiliate Income ($200-$400/month) - Perfect for ND brains'
+                    ],
+                    key: 'Create in bursts, rest during burnout. Affiliate income flows even during low-energy phases.',
+                    color: 'from-cyan-600 to-blue-700'
+                },
+                sabbatical: {
+                    emoji: '🌊',
+                    title: 'The Sabbatical Seeker',
+                    subtitle: 'Passive income built NOW so you can unplug LATER',
+                    income: '$3,490-$3,690/month',
+                    streams: [
+                        '🏖️ Evergreen Skool Community ($11/month) - 290 members = $3,190/month',
+                        '📅 Annual Membership ($99) - 30 members = $2,970 sabbatical fund',
+                        '💤 Robust Affiliate Income ($300-$500/month) - Set and forget'
+                    ],
+                    key: 'Everything pre-recorded. Annual memberships front-load income. 12-18 months to sabbatical.',
+                    color: 'from-teal-600 to-cyan-700'
+                },
+                anticapitalist: {
+                    emoji: '✊',
+                    title: 'The Anti-Capitalist Entrepreneur',
+                    subtitle: 'Sliding scale, redistributive pricing that proves ethical abundance exists',
+                    income: '$5,366-$5,566/month',
+                    streams: [
+                        '⚖️ Sliding Scale Skool ($11/$33/$88) - 150 members averaging $30 = $4,500/month',
+                        '🌍 Community-Supported Program ($200-$600) - 2 cohorts/year',
+                        '🤝 Transparent Affiliate Income ($200-$400/month) - Justice-focused only'
+                    ],
+                    key: 'Pricing reflects values. Transparency builds trust. You\'re proving ethical wealth exists.',
+                    color: 'from-red-700 to-rose-700'
+                },
+                parent: {
+                    emoji: '👨‍👩‍👧',
+                    title: 'The Conscious Parent',
+                    subtitle: 'Batch-created income that flows during school/nap times',
+                    income: '$3,620-$3,720/month',
+                    streams: [
+                        '👪 Family-Friendly Skool ($22/month) - 145 members = $3,190/month',
+                        '📚 Batch-Created Products ($22-$44) - 10 sales/month = $330',
+                        '🎈 Affiliate Income ($100-$200/month) - Earn while parenting'
+                    ],
+                    key: 'Income doesn\'t steal presence. Batch everything in kid-free windows. Your kids watch you build integrity.',
+                    color: 'from-amber-600 to-orange-600'
+                }
+            };
+
+            const calculateResult = () => {
+                const scores = {};
+                Object.keys(archetypes).forEach(arch => scores[arch] = 0);
+                Object.values(answers).forEach(answer => {
+                    answer.archetypes.forEach(arch => {
+                        scores[arch] = (scores[arch] || 0) + 1;
+                    });
+                });
+                const topArchetype = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+                return topArchetype;
+            };
+
+            const handleAnswer = (option) => {
+                setSelectedOption(option.id);
+                setAnswers({ ...answers, [currentQuestion]: option });
+            };
+
+            const handleNext = () => {
+                if (selectedOption) {
+                    if (currentQuestion < questions.length - 1) {
+                        setCurrentQuestion(currentQuestion + 1);
+                        setSelectedOption(answers[currentQuestion + 1]?.id || null);
+                    } else {
+                        setShowResult(true);
+                    }
+                }
+            };
+
+            const handlePrevious = () => {
+                if (currentQuestion > 0) {
+                    setCurrentQuestion(currentQuestion - 1);
+                    setSelectedOption(answers[currentQuestion - 1]?.id || null);
+                }
+            };
+
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            const result = showResult ? archetypes[calculateResult()] : null;
+
+            if (showResult && result) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4 flex items-center justify-center">
+                        <div className="max-w-3xl w-full">
+                            <div className={`bg-gradient-to-br ${result.color} p-1 rounded-2xl`}>
+                                <div className="bg-black rounded-2xl p-8">
+                                    <div className="text-center mb-8">
+                                        <div className="text-8xl mb-4">{result.emoji}</div>
+                                        <h1 className="text-4xl font-bold text-white mb-2">{result.title}</h1>
+                                        <p className="text-xl text-gray-300 mb-4">{result.subtitle}</p>
+                                        <div className="inline-block bg-[#c1ff72] text-black px-6 py-2 rounded-full font-bold text-xl">
+                                            {result.income}
+                                        </div>
+                                    </div>
+                                    <div className="space-y-6 mb-8">
+                                        <div className="bg-gray-900 rounded-xl p-6">
+                                            <h3 className="font-bold text-lg mb-3" style={{color: '#f42ba6'}}>Your Soul-Aligned Income Mix:</h3>
+                                            {result.streams.map((stream, i) => (
+                                                <div key={i} className="flex items-start mb-2">
+                                                    <p className="text-gray-200">{stream}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="bg-gray-900 rounded-xl p-6">
+                                            <h3 className="font-bold text-lg mb-3" style={{color: '#2cb8b0'}}>What Makes This Work for YOU:</h3>
+                                            <p className="text-gray-200">{result.key}</p>
+                                        </div>
+                                    </div>
+                                    <div className="text-center space-y-4">
+                                        <p className="text-gray-300 text-lg mb-4">These numbers are your sustainable foundation.</p>
+                                        
+                                        <details className="bg-gray-900 rounded-xl p-6 text-left mb-6 cursor-pointer">
+                                            <summary className="font-bold text-lg mb-3 cursor-pointer" style={{color: '#c1ff72'}}>
+                                                ✨ Want to Build Bigger? (Click to expand)
+                                            </summary>
+                                            <div className="text-gray-300 mt-4 space-y-3">
+                                                <p>These income goals are designed to feel <strong>light and achievable</strong> - your sustainable starting point.</p>
+                                                <p>But if you're dreaming of $10k, $20k, or $50k months? <strong>Perfecto.</strong></p>
+                                                <p>In your Prosperity Clarity Session, we can map:</p>
+                                                <ul className="list-none space-y-2 ml-4">
+                                                    <li>💫 How to scale your Skool community strategically</li>
+                                                    <li>🚀 Additional revenue streams that fit YOUR energy</li>
+                                                    <li>📈 Your custom roadmap to bigger income goals</li>
+                                                    <li>⚡ What to build first, second, third (no overwhelm)</li>
+                                                </ul>
+                                                <p className="mt-4 pt-4 border-t border-gray-700">Whether you want $4k or $40k/month, we build <em>your</em> roadmap - not someone else's formula.</p>
+                                            </div>
+                                        </details>
+                                        
+                                        <p className="text-gray-300 text-lg mb-6">Ready to build YOUR 90-day roadmap with your actual numbers?</p>
+                                        <a href="https://tidycal.com/laubrizuela/prosperity-clarity-session" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105" style={{backgroundColor: '#f42ba6', boxShadow: '0 10px 30px rgba(244, 43, 166, 0.5)'}}>
+                                            <svg className="mr-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>
+                                            Book Your $88 Prosperity Clarity Session
+                                        </a>
+                                        <p className="text-sm text-gray-400 mt-4">One 90-minute session. No upsell. No program. No guilt.</p>
+                                        <p className="text-sm mt-3" style={{color: '#c1ff72'}}>Dream of building bigger? Perfect - we map your growth path too. ✨</p>
+                                        <div className="mt-8 pt-8 border-t border-gray-800">
+                                            <p className="font-bold text-xl mb-3" style={{color: '#c1ff72'}}>Another way is possible ✨</p>
+                                            <p className="brand-font text-2xl mb-1" style={{color: '#f42ba6'}}>Prosperity Pact</p>
+                                            <p className="text-sm text-gray-400">by Lau Brizuela</p>
+                                            <p className="text-xs text-gray-500 mt-1">Spiritual Business & Rebel Manifestation Mentor</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4 flex items-center justify-center">
+                    <div className="max-w-2xl w-full">
+                        <div className="text-center mb-8">
+                            <h1 className="text-3xl md:text-4xl font-bold brand-font" style={{color: '#f42ba6'}}>Soul-Aligned Business Roadmap</h1>
+                            <p className="text-gray-400">Discover your authentic path to prosperity</p>
+                        </div>
+                        <div className="mb-8">
+                            <div className="flex justify-between items-center mb-2">
+                                <span style={{color: '#c1ff72'}} className="font-bold">Question {currentQuestion + 1} of {questions.length}</span>
+                                <span style={{color: '#f42ba6'}} className="font-bold">{Math.round(progress)}%</span>
+                            </div>
+                            <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                                <div className="h-full transition-all duration-500 ease-out" style={{ width: `${progress}%`, background: 'linear-gradient(to right, #c1ff72, #f42ba6, #2cb8b0)' }}/>
+                            </div>
+                        </div>
+                        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-2xl border border-gray-700">
+                            <div className="flex items-start mb-6">
+                                <svg style={{color: '#f42ba6'}} className="mr-3 mt-1 flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
+                                </svg>
+                                <h2 className="text-2xl font-bold text-white leading-tight">{questions[currentQuestion].question}</h2>
+                            </div>
+                            <div className="space-y-3">
+                                {questions[currentQuestion].options.map((option) => (
+                                    <button key={option.id} onClick={() => handleAnswer(option)} className={`w-full text-left p-5 rounded-xl transition-all transform hover:scale-102 ${selectedOption === option.id ? 'text-white border-2 shadow-lg' : 'bg-gray-800 text-gray-200 hover:bg-gray-700 border-2 border-gray-700 hover:border-gray-600'}`} style={selectedOption === option.id ? {background: '#f42ba6', borderColor: '#c1ff72'} : {}}>
+                                        <div className="flex items-start">
+                                            <span className={`font-bold mr-3`} style={{color: selectedOption === option.id ? '#c1ff72' : '#6b7280'}}>{option.id}.</span>
+                                            <span>{option.text}</span>
+                                        </div>
+                                    </button>
+                                ))}
+                            </div>
+                            <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-700">
+                                <button onClick={handlePrevious} disabled={currentQuestion === 0} className={`flex items-center px-6 py-3 rounded-full font-bold transition-all ${currentQuestion === 0 ? 'bg-gray-800 text-gray-600 cursor-not-allowed' : 'text-white'}`} style={currentQuestion === 0 ? {} : {backgroundColor: '#2cb8b0'}}>
+                                    <svg className="mr-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                    Previous
+                                </button>
+                                <button onClick={handleNext} disabled={!selectedOption} className={`flex items-center px-6 py-3 rounded-full font-bold transition-all transform hover:scale-105 ${!selectedOption ? 'bg-gray-800 text-gray-600 cursor-not-allowed' : 'text-white'}`} style={!selectedOption ? {} : {backgroundColor: '#f42ba6', boxShadow: '0 10px 30px rgba(244, 43, 166, 0.5)'}}>
+                                    {currentQuestion === questions.length - 1 ? 'See My Result' : 'Next'}
+                                    <svg className="ml-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="text-center mt-6">
+                            <p className="brand-font text-2xl mb-1" style={{color: '#f42ba6'}}>Prosperity Pact</p>
+                            <p className="text-sm text-gray-400">by Lau Brizuela</p>
+                            <p className="text-xs text-gray-500 mt-1">Spiritual Business & Rebel Manifestation Mentor</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<SoulClientQuiz />, document.getElementById('root'));
+    </script>
+</body>
+</html>
