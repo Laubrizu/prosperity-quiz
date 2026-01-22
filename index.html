@@ -45,7 +45,7 @@
                     options: [
                         { id: 'A', text: "I need space to rest deeply. My rhythm is cyclical, not linear, and I refuse to force consistency.", archetypes: ['cyclical', 'neurodivergent'] },
                         { id: 'B', text: "I want time for activism, causes I care about, and making real change in the world.", archetypes: ['activist', 'anticapitalist'] },
-                        { id: 'C', text: "I need freedom to disappear sometimes—to travel, write, breathe, and just exist without producing.", archetypes: ['sabbatical', 'countryside'] },
+                        { id: 'C', text: "I need freedom to step away—to travel, write, breathe, and just exist without the pressure to always be producing.", archetypes: ['sabbatical', 'countryside'] },
                         { id: 'D', text: "I want to be present with my family/loved ones without guilt about 'not working enough.'", archetypes: ['parent', 'burnout'] }
                     ]
                 },
@@ -65,8 +65,8 @@
                     options: [
                         { id: 'A', text: "I can't figure out how to package what I do. Structure feels like it will kill the magic.", archetypes: ['mystic', 'cyclical'] },
                         { id: 'B', text: "I'm burning out from saying yes to everyone. I give too much and there's nothing left for me.", archetypes: ['burnout', 'parent'] },
-                        { id: 'C', text: "Every business move feels like selling out. I can't reconcile making money with my values.", archetypes: ['anticapitalist', 'activist'] },
-                        { id: 'D', text: "I've been trying to make this work for so long and nothing sticks. I'm exhausted and losing hope.", archetypes: ['triedeverything', 'sabbatical'] }
+                        { id: 'C', text: "I struggle with consistency. My energy comes and goes, and rigid schedules feel impossible to maintain.", archetypes: ['neurodivergent', 'cyclical'] },
+                        { id: 'D', text: "Every business move feels like selling out. I can't reconcile making money with my values.", archetypes: ['anticapitalist', 'activist'] }
                     ]
                 },
                 {
@@ -133,10 +133,10 @@
                     id: 11,
                     question: "If You Could Wave a Magic Wand, What Would Your Business Look Like in 6 Months?",
                     options: [
-                        { id: 'A', text: "Simple, sustainable, aligned with my energy. Enough clients to live comfortably without overwhelm.", archetypes: ['cyclical', 'mystic'] },
-                        { id: 'B', text: "Generating consistent income that lets me rest, give back, and live without financial stress.", archetypes: ['sabbatical', 'anticapitalist'] },
-                        { id: 'C', text: "Filled with soul clients who see my value and pay me fairly without me having to 'sell' myself.", archetypes: ['intuitive', 'countryside'] },
-                        { id: 'D', text: "Built on my terms, in my rhythm, with my values intact—proof that another way is possible.", archetypes: ['neurodivergent', 'parent'] }
+                        { id: 'A', text: "Simple and sustainable—just enough clients to live well, with space to breathe and create without overwhelm.", archetypes: ['cyclical', 'mystic'] },
+                        { id: 'B', text: "Earning consistent income with multiple streams—membership, products, and passive revenue working together.", archetypes: ['sabbatical', 'triedeverything'] },
+                        { id: 'C', text: "Attracting soul clients naturally—people who recognize my value immediately and invest without hesitation.", archetypes: ['intuitive', 'countryside'] },
+                        { id: 'D', text: "Fully aligned with my values and rhythm—proving you can build wealth with integrity, on your own terms.", archetypes: ['neurodivergent', 'anticapitalist'] }
                     ]
                 }
             ];
@@ -324,6 +324,7 @@
                         setSelectedOption(answers[currentQuestion + 1]?.id || null);
                     } else {
                         setShowResult(true);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 }
             };
@@ -348,7 +349,8 @@
                                         <div className="text-8xl mb-4">{result.emoji}</div>
                                         <h1 className="text-4xl font-bold text-white mb-2">{result.title}</h1>
                                         <p className="text-xl text-gray-300 mb-4">{result.subtitle}</p>
-                                        <div className="inline-block bg-[#c1ff72] text-black px-6 py-2 rounded-full font-bold text-xl">
+                                        <p className="text-sm text-gray-400 mb-2">Your Sustainable Income Path:</p>
+                                        <div className="inline-block px-6 py-2 rounded-lg font-bold text-xl border-2" style={{backgroundColor: 'transparent', borderColor: '#c1ff72', color: '#c1ff72'}}>
                                             {result.income}
                                         </div>
                                     </div>
@@ -361,32 +363,8 @@
                                                 </div>
                                             ))}
                                         </div>
-                                        <div className="bg-gray-900 rounded-xl p-6">
-                                            <h3 className="font-bold text-lg mb-3" style={{color: '#2cb8b0'}}>What Makes This Work for YOU:</h3>
-                                            <p className="text-gray-200">{result.key}</p>
-                                        </div>
                                     </div>
                                     <div className="text-center space-y-4">
-                                        <p className="text-gray-300 text-lg mb-4">These numbers are your sustainable foundation.</p>
-                                        
-                                        <details className="bg-gray-900 rounded-xl p-6 text-left mb-6 cursor-pointer">
-                                            <summary className="font-bold text-lg mb-3 cursor-pointer" style={{color: '#c1ff72'}}>
-                                                ✨ Want to Build Bigger? (Click to expand)
-                                            </summary>
-                                            <div className="text-gray-300 mt-4 space-y-3">
-                                                <p>These income goals are designed to feel <strong>light and achievable</strong> - your sustainable starting point.</p>
-                                                <p>But if you're dreaming of $10k, $20k, or $50k months? <strong>Perfecto.</strong></p>
-                                                <p>In your Prosperity Clarity Session, we can map:</p>
-                                                <ul className="list-none space-y-2 ml-4">
-                                                    <li>💫 How to scale your Skool community strategically</li>
-                                                    <li>🚀 Additional revenue streams that fit YOUR energy</li>
-                                                    <li>📈 Your custom roadmap to bigger income goals</li>
-                                                    <li>⚡ What to build first, second, third (no overwhelm)</li>
-                                                </ul>
-                                                <p className="mt-4 pt-4 border-t border-gray-700">Whether you want $4k or $40k/month, we build <em>your</em> roadmap - not someone else's formula.</p>
-                                            </div>
-                                        </details>
-                                        
                                         <p className="text-gray-300 text-lg mb-6">Ready to build YOUR 90-day roadmap with your actual numbers?</p>
                                         <a href="https://tidycal.com/laubrizuela/prosperity-clarity-session" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105" style={{backgroundColor: '#f42ba6', boxShadow: '0 10px 30px rgba(244, 43, 166, 0.5)'}}>
                                             <svg className="mr-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -434,7 +412,7 @@
                                 <svg style={{color: '#f42ba6'}} className="mr-3 mt-1 flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
                                 </svg>
-                                <h2 className="text-2xl font-bold text-white leading-tight">{questions[currentQuestion].question}</h2>
+                                <h2 className="text-xl md:text-2xl font-bold text-white leading-tight">{questions[currentQuestion].question}</h2>
                             </div>
                             <div className="space-y-3">
                                 {questions[currentQuestion].options.map((option) => (
