@@ -23,6 +23,7 @@
         const { useState } = React;
 
         const SoulClientQuiz = () => {
+            const [showIntro, setShowIntro] = useState(true);
             const [currentQuestion, setCurrentQuestion] = useState(0);
             const [answers, setAnswers] = useState({});
             const [showResult, setShowResult] = useState(false);
@@ -148,9 +149,9 @@
                     subtitle: 'You work with the moon, honor your rhythms, and refuse constant production',
                     income: '$3,500-$3,800/month',
                     streams: [
-                        '🌙 Membership ($22-$33/month) - 145 souls = $3,190/month',
-                        '✨ One-Time Offers ($22-$44) - Seasonal launches',
-                        '💰 Affiliate Income ($100-$200/month) - Passive earnings'
+                        '🌙 Skool Membership ($22-$33/month) - 145 members = $3,190/month',
+                        '✨ Seasonal Digital Products ($22-$44) - Launch every 2-3 months',
+                        '💰 Affiliate Income ($100-$200/month) - Earn while you rest'
                     ],
                     key: [
                         'Batch content during high-energy phases, rest guilt-free the rest of the time',
@@ -166,7 +167,7 @@
                     subtitle: 'Your business IS your activism. You build wealth that creates change',
                     income: '$4,700-$5,400/month',
                     streams: [
-                        '⚖️ Sliding Scale Membership ($11-$88/month) - 150 souls averaging $28 = $4,200/month',
+                        '⚖️ Sliding Scale Skool Membership ($11-$88/month) - 150 members averaging $28 = $4,200/month',
                         '✊ Group Programs ($200-$600) - 2 cohorts/year',
                         '🤝 Affiliate Income ($200-$400/month)'
                     ],
@@ -184,9 +185,9 @@
                     subtitle: 'You need boundaries and income that doesn\'t drain you',
                     income: '$4,100-$4,300/month',
                     streams: [
-                        '🛡️ Intimate Membership ($33/month) - MAX 100 souls = $3,300/month',
-                        '🧘‍♀️ Small Group Programs ($600) - 2 cohorts/year, 6-8 people max',
-                        '💸 Affiliate Income ($100-$200/month) - Passive earnings'
+                        '🛡️ Intimate Skool Community ($33/month) - MAX 100 members = $3,300/month',
+                        '🧘‍♀️ Small Group Coaching ($600) - Only 2 cohorts/year, 6-8 people',
+                        '💸 Affiliate Income ($100-$200/month) - Let others sell for you'
                     ],
                     key: [
                         'Serve fewer people at higher prices—quality over quantity',
@@ -202,9 +203,9 @@
                     subtitle: 'You need ONE simple path, not 47 strategies',
                     income: '$3,670-$3,820/month',
                     streams: [
-                        '🎯 ONE Membership ($11/month) - 290 souls = $3,190/month',
+                        '🎯 ONE Skool Community ($11/month) - 290 members = $3,190/month',
                         '📦 3 Simple One-Time Offers ($22-$44) - Rotate quarterly',
-                        '🔗 Affiliate Income ($150-$300/month) - 40% commissions'
+                        '🔗 Strategic Affiliate Income ($150-$300/month) - 40% commissions'
                     ],
                     key: [
                         'ONE price, ONE community, ONE clear path forward',
@@ -220,9 +221,9 @@
                     subtitle: 'You need flexible structure that holds your intuitive flow',
                     income: '$3,994-$4,542/month',
                     streams: [
-                        '✨ Membership ($22/month) - 145 souls = $3,190/month',
-                        '🔮 Private Sessions ($88-$144) - 8 sessions/month',
-                        '🌟 Affiliate Income ($100-$200/month) - Aligned tools & communities'
+                        '✨ Mystical Skool Community ($22/month) - 145 members = $3,190/month',
+                        '🔮 Private Intuitive Sessions ($88-$144) - 8 sessions/month',
+                        '🌟 Affiliate Income ($100-$200/month) - Mystical tools & communities'
                     ],
                     key: [
                         'Structure holds your magic—it doesn\'t kill it',
@@ -238,9 +239,9 @@
                     subtitle: 'Digital income NOW funds land AND retreat center LATER',
                     income: '$5,185-$5,385/month',
                     streams: [
-                        '🏡 Membership ($33/month) - 145 souls = $4,785/month',
-                        '🌾 Retreat Pre-Sales ($600-$1,200) - Sell now, deliver later',
-                        '🌱 Affiliate Income ($200-$300/month) - Aligned products'
+                        '🏡 "Land Fund" Skool Community ($33/month) - 145 members = $4,785/month',
+                        '🌾 "Future Retreat" Pre-Sales ($600-$1,200) - Sell spots now, deliver later',
+                        '🌱 Affiliate Income ($200-$300/month) - Homesteading tools'
                     ],
                     key: [
                         '145 members at $33/month = $57,420/year (your land down payment!)',
@@ -256,9 +257,9 @@
                     subtitle: 'Your realness IS your brand. No toxic positivity allowed',
                     income: '$3,784-$3,884/month',
                     streams: [
-                        '🔥 Membership ($22/month) - 145 souls = $3,190/month',
-                        '🌑 Deep Group Work ($333) - 2 cohorts/year, max 8 people',
-                        '💪 Affiliate Income ($150-$250/month) - 40% commissions'
+                        '🔥 "No-Bullshit" Skool Community ($22/month) - 145 members = $3,190/month',
+                        '🌑 Shadow Work Intensive ($333) - 2 cohorts/year, max 8 people',
+                        '💪 Affiliate Income + Merch ($150-$250/month) - 40% commissions'
                     ],
                     key: [
                         'Your realness IS your brand—no performance required',
@@ -274,9 +275,9 @@
                     subtitle: 'Small, safe spaces to build confidence claiming your gifts',
                     income: '$4,280-$4,330/month',
                     streams: [
-                        '🔒 Intimate Membership ($33/month) - MAX 100 souls = $3,300/month',
+                        '🔒 Intimate Skool Community ($33/month) - MAX 100 members = $3,300/month',
                         '🌙 Private Sessions ($88) - 10 sessions/month = $880',
-                        '🤲 Affiliate Income ($100-$150/month) - Trusted communities'
+                        '🤲 Small Affiliate Income ($100-$150/month) - Trusted communities'
                     ],
                     key: [
                         'You don\'t need 500 members—just 100 who believe in you',
@@ -292,9 +293,9 @@
                     subtitle: 'Hyperfocus-friendly income without daily consistency',
                     income: '$3,830-$4,030/month',
                     streams: [
-                        '🎨 Membership ($22/month) - 145 souls = $3,190/month',
-                        '⚡ One-Time Products ($33-$88) - Create once, sell forever',
-                        '🔄 Affiliate Income ($200-$400/month) - Passive earnings'
+                        '🎨 Flexible Skool Community ($22/month) - 145 members = $3,190/month',
+                        '⚡ Hyperfocus-Created Products ($33-$88) - Create once, sell forever',
+                        '🔄 Affiliate Income ($200-$400/month) - Perfect for ND brains'
                     ],
                     key: [
                         'Create in bursts during hyperfocus, rest during burnout—both are productive',
@@ -310,9 +311,9 @@
                     subtitle: 'Passive income built NOW so you can unplug LATER',
                     income: '$3,490-$3,690/month',
                     streams: [
-                        '🏖️ Membership ($11/month) - 290 souls = $3,190/month',
-                        '📅 Annual Memberships ($99) - 30 souls = $2,970 sabbatical fund',
-                        '💤 Affiliate Income ($300-$500/month) - Passive earnings'
+                        '🏖️ Evergreen Skool Community ($11/month) - 290 members = $3,190/month',
+                        '📅 Annual Membership ($99) - 30 members = $2,970 sabbatical fund',
+                        '💤 Robust Affiliate Income ($300-$500/month) - Set and forget'
                     ],
                     key: [
                         'Everything pre-recorded—truly passive income',
@@ -328,9 +329,9 @@
                     subtitle: 'Sliding scale, redistributive pricing that proves ethical abundance exists',
                     income: '$5,366-$5,566/month',
                     streams: [
-                        '⚖️ Sliding Scale Membership ($11/$33/$88) - 150 souls averaging $30 = $4,500/month',
-                        '🌍 Group Programs ($200-$600) - 2 cohorts/year',
-                        '🤝 Affiliate Income ($200-$400/month) - Values-aligned only'
+                        '⚖️ Sliding Scale Skool ($11/$33/$88) - 150 members averaging $30 = $4,500/month',
+                        '🌍 Community-Supported Program ($200-$600) - 2 cohorts/year',
+                        '🤝 Transparent Affiliate Income ($200-$400/month) - Justice-focused only'
                     ],
                     key: [
                         'Transparent pricing shows exactly where money flows',
@@ -346,9 +347,9 @@
                     subtitle: 'Batch-created income that flows during school/nap times',
                     income: '$3,620-$3,720/month',
                     streams: [
-                        '👪 Membership ($22/month) - 145 souls = $3,190/month',
-                        '📚 One-Time Products ($22-$44) - 10 sales/month = $330',
-                        '🎈 Affiliate Income ($100-$200/month) - Passive earnings'
+                        '👪 Family-Friendly Skool ($22/month) - 145 members = $3,190/month',
+                        '📚 Batch-Created Products ($22-$44) - 10 sales/month = $330',
+                        '🎈 Affiliate Income ($100-$200/month) - Earn while parenting'
                     ],
                     key: [
                         'Batch everything during kid-free windows—naptime is money time',
@@ -399,10 +400,102 @@
             const progress = ((currentQuestion + 1) / questions.length) * 100;
             const result = showResult ? archetypes[calculateResult()] : null;
 
+            // Landing Page Intro
+            if (showIntro) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center p-4">
+                        <div className="max-w-3xl w-full text-center">
+                            <div className="mb-8">
+                                <img 
+                                    src="./Prosperity_Pact_Logo.png" 
+                                    alt="Prosperity Pact Logo" 
+                                    className="w-48 h-48 mx-auto mb-6"
+                                    style={{objectFit: 'contain'}}
+                                />
+                            </div>
+                            
+                            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                                <span className="text-white">Find Your </span>
+                                <span style={{color: '#c1ff72'}}>Soul Client Path</span>
+                            </h1>
+                            
+                            <p className="text-xl md:text-2xl text-gray-300 mb-12">
+                                3 minutes to discover your authentic business model<br/>
+                                aligned with your values and energy
+                            </p>
+                            
+                            <div className="space-y-4 mb-12 text-left max-w-2xl mx-auto">
+                                <div className="flex items-start">
+                                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4" style={{backgroundColor: '#2cb8b0'}}>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <p className="text-gray-200 text-lg">Your unique Soul Client archetype and income strategy</p>
+                                </div>
+                                <div className="flex items-start">
+                                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4" style={{backgroundColor: '#2cb8b0'}}>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <p className="text-gray-200 text-lg">What's achievable for YOU in 3 months (real numbers)</p>
+                                </div>
+                                <div className="flex items-start">
+                                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4" style={{backgroundColor: '#2cb8b0'}}>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <p className="text-gray-200 text-lg">How to build wealth without sacrificing your magic</p>
+                                </div>
+                            </div>
+                            
+                            <button 
+                                onClick={() => setShowIntro(false)}
+                                className="px-12 py-5 rounded-full font-bold text-xl text-black transition-all transform hover:scale-105 shadow-lg inline-flex items-center"
+                                style={{backgroundColor: '#c1ff72'}}
+                            >
+                                Start Quiz
+                                <svg className="ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
             if (showResult && result) {
                 return (
-                    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4 flex items-center justify-center">
-                        <div className="max-w-3xl w-full">
+                    <>
+                        {/* Sticky Header */}
+                        <div className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800" style={{backdropFilter: 'blur(10px)', backgroundColor: 'rgba(0, 0, 0, 0.9)'}}>
+                            <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+                                <div className="flex items-center">
+                                    <img 
+                                        src="./Prosperity_Pact_Logo.png" 
+                                        alt="PP" 
+                                        className="h-10 w-10 mr-3"
+                                        style={{objectFit: 'contain'}}
+                                    />
+                                    <span className="brand-font text-xl" style={{color: '#f42ba6'}}>Prosperity Pact</span>
+                                </div>
+                                <a 
+                                    href="https://www.skool.com/prosperity-pact" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="px-4 py-2 rounded-full text-sm font-bold transition-all hover:scale-105"
+                                    style={{backgroundColor: '#c1ff72', color: 'black'}}
+                                >
+                                    Join Free
+                                </a>
+                            </div>
+                        </div>
+                        
+                        {/* Results Content */}
+                        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black pt-20 pb-8 px-4 flex items-center justify-center">
+                            <div className="max-w-3xl w-full">
                             <div className={`bg-gradient-to-br ${result.color} p-1 rounded-2xl`}>
                                 <div className="bg-black rounded-2xl p-8">
                                     <div className="text-center mb-8">
@@ -410,8 +503,8 @@
                                         <h1 className="text-4xl font-bold text-white mb-2">{result.title}</h1>
                                         <p className="text-xl text-gray-300 mb-4">{result.subtitle}</p>
                                         <div className="mt-6 mb-6">
-                                            <p className="text-base font-light text-gray-300 mb-3">What's possible and achievable for you in 3 months:</p>
-                                            <p className="text-2xl font-semibold" style={{color: '#c1ff72'}}>{result.income}</p>
+                                            <p className="text-xl text-gray-300 mb-2">What's possible and achievable for you in 3 months:</p>
+                                            <p className="text-2xl font-normal" style={{color: '#c1ff72'}}>{result.income}</p>
                                         </div>
                                     </div>
                                     <div className="space-y-6 mb-8">
@@ -450,21 +543,56 @@
                                         <p className="text-sm mt-3" style={{color: '#c1ff72'}}>Dream of building bigger? Perfect - we map your growth path too. ✨</p>
                                         <div className="mt-8 pt-8 border-t border-gray-800">
                                             <p className="font-bold text-xl mb-3" style={{color: '#c1ff72'}}>Another way is possible ✨</p>
-                                            <p className="brand-font text-2xl mb-1" style={{color: '#f42ba6'}}>Prosperity Pact</p>
+                                            
+                                            <div className="mt-6 p-6 bg-gray-900 rounded-xl">
+                                                <p className="text-gray-300 mb-4">Not in the Prosperity Pact community yet?</p>
+                                                <a href="https://www.skool.com/prosperity-pact" target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 rounded-full font-bold transition-all transform hover:scale-105" style={{backgroundColor: '#2cb8b0', color: 'white'}}>
+                                                    Join Free Community
+                                                </a>
+                                            </div>
+                                            
+                                            <p className="brand-font text-2xl mb-1 mt-6" style={{color: '#f42ba6'}}>Prosperity Pact</p>
                                             <p className="text-sm text-gray-400">by Lau Brizuela</p>
                                             <p className="text-xs text-gray-500 mt-1">Spiritual Business & Rebel Manifestation Mentor</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                );
-            }
+                                </div>
+                            </div>
+                        </>
+                    );
+                }
 
             return (
-                <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4 flex items-center justify-center">
-                    <div className="max-w-2xl w-full">
+                <>
+                    {/* Sticky Header */}
+                    <div className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800" style={{backdropFilter: 'blur(10px)', backgroundColor: 'rgba(0, 0, 0, 0.9)'}}>
+                        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+                            <div className="flex items-center">
+                                <img 
+                                    src="./Prosperity_Pact_Logo.png" 
+                                    alt="PP" 
+                                    className="h-10 w-10 mr-3"
+                                    style={{objectFit: 'contain'}}
+                                />
+                                <span className="brand-font text-xl" style={{color: '#f42ba6'}}>Prosperity Pact</span>
+                            </div>
+                            <a 
+                                href="https://www.skool.com/prosperity-pact" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="px-4 py-2 rounded-full text-sm font-bold transition-all hover:scale-105"
+                                style={{backgroundColor: '#c1ff72', color: 'black'}}
+                            >
+                                Join Free
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {/* Quiz Content */}
+                    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black pt-20 pb-8 px-4 flex items-center justify-center">
+                        <div className="max-w-2xl w-full">
                         <div className="text-center mb-8">
                             <h1 className="text-3xl md:text-4xl font-bold brand-font" style={{color: '#f42ba6'}}>Soul-Aligned Business Roadmap</h1>
                             <p className="text-gray-400">Discover your authentic path to prosperity</p>
@@ -516,7 +644,9 @@
                             <p className="text-xs text-gray-500 mt-1">Spiritual Business & Rebel Manifestation Mentor</p>
                         </div>
                     </div>
-                </div>
+                        </div>
+                    </div>
+                </>
             );
         };
 
