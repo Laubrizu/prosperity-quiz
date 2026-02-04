@@ -419,7 +419,8 @@
             };
 
             const progress = ((currentQuestion + 1) / questions.length) * 100;
-            const result = showResult ? archetypes[calculateResult()] : null;
+            const resultKey = showResult ? calculateResult() : null;
+            const result = showResult ? archetypes[resultKey] : null;
 
             // Landing Page Intro
             if (showIntro) {
