@@ -382,10 +382,10 @@
                     if (currentQuestion < questions.length - 1) {
                         setCurrentQuestion(currentQuestion + 1);
                         setSelectedOption(answers[currentQuestion + 1]?.id || null);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
                     } else {
                         setShowResult(true);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
                     }
                 }
             };
@@ -394,7 +394,7 @@
                 if (currentQuestion > 0) {
                     setCurrentQuestion(currentQuestion - 1);
                     setSelectedOption(answers[currentQuestion - 1]?.id || null);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
                 }
             };
 
