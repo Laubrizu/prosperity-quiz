@@ -562,7 +562,7 @@
                                             <h3 className="font-bold text-lg mb-3" style={{color: '#f42ba6'}}>Possible Income Streams:</h3>
                                             {result.streams.map((stream, i) => (
                                                 <div key={i} className="flex items-start mb-2">
-                                                    <p className="text-gray-200 text-sm md:text-base">{stream}</p>
+                                                    <p className="text-gray-200 text-sm md:text-base" dangerouslySetInnerHTML={{__html: stream}} />
                                                 </div>
                                             ))}
                                         </div>
@@ -573,7 +573,7 @@
                                                 {result.key.map((point, i) => (
                                                     <div key={i} className="flex items-start">
                                                         <span className="mr-3 mt-1" style={{color: '#c1ff72'}}>•</span>
-                                                        <p className="text-gray-200 text-sm md:text-base">{point}</p>
+                                                        <p className="text-gray-200 text-sm md:text-base" dangerouslySetInnerHTML={{__html: point}} />
                                                     </div>
                                                 ))}
                                             </div>
